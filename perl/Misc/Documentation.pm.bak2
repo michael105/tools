@@ -1,0 +1,562 @@
+package documentation;
+## Extracts documentation from a script
+## usage:
+## There are two styles of writing documentation in files.
+## All documentation which should be presented are commented with ##, tags are presented by ## tag:
+## or documentation to show is commented with one #, but each docu block starts with a tag, formed by #*tag.
+##
+## the documentation which starts in line 2 of a file is always handled as description of the script.
+## If there's a usage tag present in the first block of documentation, this will show up if the script uses arguments.pm and is invoked with --help.
+##
+## All documentation written immediately before the declaration of variables and functions is handled as documentation of the following function/variable.
+## Variables descriptions are put into the description of the file.
+## 
+## The following tags are global and should possibly be written at the start:
+## -author
+## -email
+## -license
+## -year
+## -version
+## -webpage
+## These tags have also default values, defined in documentation.pm.
+## 
+## These tags describe the script/function/variables:
+## -desc / description
+## -usage
+## -params /args   The parameters of the script/function
+## if the tag args is followed by (named): named parameters.
+## list the parameters by -
+## if the line starts with + (e.g. ## + -desc ) the parameter is neccessary.
+## -returns
+## 
+
+
+use snippets;
+use File::Basename;
+
+use Data::Dumper::Simple;
+
+
+# if I'd knew xml bettter, I'd used xml to store the data..
+# On the other hand, writing this has also been quite informative.
+# I also believe, this implementation is faster and uses less memory then a full fledged xml engine.
+
+
+## Default settings
+## They are used, if the documentation in the script doesn't contain the appropriate tags
+$author = 'Michael (misc) Myer';
+##
+$email = 'misc.myer@zoho.com';
+## 
+$license = 'GPL';
+## 
+$year = '2007';
+##
+$version = '0.1';
+## 
+$webpage = 'http://www.misc2.net';
+## 
+$description = "Not written yet.";
+## 
+$usage = "Not written yet.";
+##
+$scriptname = "Defaults to the script's name";
+
+
+## Holds some info about different license
+## SCRIPTNAME will be replaced with the script's name
+$licenseinfo = {
+		GPL=><<'ENDGPL'
+SCRIPTNAME comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it
+under certain conditions; type 'SCRIPTNAME --license' for details.
+ENDGPL
+};
+
+## Holds the licenses
+$licenses={ GPL=><<'ENDGPL'
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ENDGPL
+};
+
+
+## The linebreak string
+$linebreak = "\n";
+
+@defaultinfotags = qw/author email license year version webpage description usage scriptname/;
+
+@allowedtags=@defaultinfotags;
+push @allowedtags, qw/params args returns desc/;
+$translatetags = { desc=>'description', params=>'args' };
+
+
+## constructor
+sub new{
+				my $self = {};
+				bless $self;
+				$self->setdefaults();
+
+				foreach my $tag ( @allowedtags ){
+								$tags{$tag} = 1;
+				}
+				$scriptname = $0;
+
+				$scriptname =~ s/.*\///;
+
+
+				return $self;
+}
+
+## Inits the default settings of this instance.
+## callen by new
+sub setdefaults{
+				my $self = shift;
+
+				foreach my $tag ( @defaultinfotags ){
+								$self->set_element_content( tag=>$tag, content=>[$$tag] );
+								$self->set_element_attribute( tag=>$tag, attribute=>'default', value=>'1' );
+				}
+}	
+
+## Sets the content of a element.
+## overwrites the old content !
+## params: (named)
+## -function: <string> inserts the tag into the description of the function named by this argument
+## + -tag: <string> the tag
+## + -content: <arrayref> the content
+## 
+sub set_element_content{
+				my $self = shift;
+				my %args = @_;
+
+				#print "args:\n",Dumper %args;
+
+				$self->delete_element_content( %args );
+
+				$self->append_element_content( %args );
+				if ( !exists($args{function} ) || ( $args{function} eq '-') ){
+						$self->delete_element_attribute( tag=>$args{tag}, attribute=>'default' );
+				}
+
+						
+						# delete the default attribute of the script's main desription,
+						# if we've just changed a tag of the script's desc.
+}
+
+#*desc
+# Deletes a element's content
+# Must be overwritten by subclasses
+#*args (named)
+# -function: <string> deletes the tag of the description of the function, if specified
+# + -tag: <string> the tag
+sub delete_element_content{ 
+				my $self = shift;
+				my %args = @_;
+
+				#print Dumper %args;
+				if ( exists( $args{function} ) && $args{function} ne '-' ){
+								undef $self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content};
+				} else { # delete info about the script/module itself
+								undef $self->{doc}->{info}->{$args{tag}}->{content};
+				}
+}
+
+
+## Appends content to a tag.
+## Creates tag, if content doesn't exist
+## To be overwritten by subclasses
+## params: (named)
+## -function: <string>  appends the tag into the description of the function named by this argument
+## + -tag: <string> the tag
+## + -content: <arrayref> the content has "\n"'s at the end of each line
+## 
+sub append_element_content{
+				my $self = shift;
+				my %args = @_;
+
+				chomp @{$args{content}};
+
+				if ( exists( $args{function} ) && $args{function} ne '-' ){
+								if ( snippets::strexist($self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content})){
+												$self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content} .= 
+													$linebreak.join( $linebreak, @{$args{content}} );
+								} else {
+												$self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content} = 
+													join( $linebreak, @{$args{content}} );
+								}
+
+				} else {
+								if ( snippets::strexist($self->{doc}->{info}->{$args{tag}}->{content}) ){
+												$self->{doc}->{info}->{$args{tag}}->{content} .=
+													$linebreak .join( $linebreak, @{$args{content}} );
+								} else {
+												$self->{doc}->{info}->{$args{tag}}->{content} =
+													join( $linebreak, @{$args{content}} );
+								}	
+
+				}
+}
+
+# returns with the content af an element
+#*params: (named)
+# -function: if defined, returns looks in the description of the function, otherwise in the description of the script
+# -tag:	the tag for which to look, defaults to description
+#*returns:
+# The elements content or 0
+sub get_element_content{
+		my $self = shift;
+		my %args = @_;
+
+		if ( exists( $args{function} ) ){
+				if ( snippets::strexist($self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content}) ){
+						return ( $self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content});
+				} else {
+						return 0;
+				}
+		} else {
+				if ( snippets::strexist($self->{doc}->{info}->{$args{tag}}->{content}) ) {
+						return ($self->{doc}->{info}->{$args{tag}}->{content});
+				} else {
+						return 0;
+				}
+		}
+}
+
+## Sets the attribute of an element
+## Creates tag, if content doesn't exist
+## To be overwritten by subclasses
+## params: (named)
+## -function: <string>  appends the tag into the description of the function named by this argument
+## + -tag: <string> the tag
+## + -attribute: <string> the attribute
+## + -value: <string> the value
+## 
+sub set_element_attribute{
+				my $self = shift;
+				my %args = @_;
+
+
+				if ( exists( $args{function} ) && $args{function} ne '-' ){
+										$self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{attributes}->{$args{attribute}} = $args{value};
+				} else {
+								$self->{doc}->{info}->{$args{tag}}->{attributes}->{$args{attribute}} = $args{value};
+				}
+}
+
+## Returns with the attribute of an element, or undef of the attribute doesn't exist
+## params: (named)
+## -function: <string>  appends the tag into the description of the function named by this argument
+## + -tag: <string> the tag
+## + -attribute: <string> the attribute
+## 
+## returns:
+## The attribute's value, or undef if the attribute doesn't exist
+sub get_element_attribute{
+		my $self = shift;
+		my %args = @_;
+		#print "args:\n",Dumper @_;
+		#print caller();
+
+		my $attributes;
+		if ( exists( $args{function} ) && $args{function} ne '-' ){
+						$attributes = $self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{attributes};
+		} else {
+				$attributes = $self->{doc}->{info}->{$args{tag}}->{attributes};
+		}
+
+
+		if ( exists( $attributes->{$args{attribute}} ) ){
+				return $attributes->{$args{attribute}};
+		} else {
+				return undef;
+		}
+}
+
+## Delete's the attribute of an element
+## params: (named)
+## -function: <string>  appends the tag into the description of the function named by this argument
+## + -tag: <string> the tag
+## + -attribute: <string> the attribute
+## 
+sub delete_element_attribute{
+		my $self = shift;
+		my %args = @_;
+
+		my $attributes;
+		if ( exists( $args{function} ) && $args{function} ne '-' ){
+						$attributes = $self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{attributes};
+		} else {
+				$attributes = $self->{doc}->{info}->{$args{tag}}->{attributes};
+		}
+
+		delete( $attributes->{$args{attribute}} ) if ( defined($attributes) );
+}
+
+
+
+
+## calls parsefile for the perl script itself
+sub parsescript{
+				my $self = shift;
+
+				$self->parsefile( $0 );
+}
+
+
+
+#sub process_info{ # Processes an info block with #* tags
+#				my $self = shift;
+#				my @doc = @_;
+#				#my %info;
+#				my $tag;
+#
+#				my $lastline = pop @doc;
+#
+#				while ( my $l = shift @doc ){
+#								if ( $l =~ /^#\* *(.*)/ ){
+#												$tag  = $1;
+#												#print "found tag: $tag\n";
+#								} else {
+#												$l =~ s/^# *//;
+#												next if ( length( $l ) <2 );
+#												#		print "$l";
+#												push @{$info{$tag}}, $l;
+#								}
+#				}
+#				#return \%info;
+#}
+
+##
+sub process_info{ # Processes an info block 
+				my $self = shift;
+				my %args = @_;
+
+#				print Dumper( %args );
+				my @doc;
+				@doc = @{$args{doc}};
+
+				my $slashtags = 0; # ## tags
+				if ( exists($args{tagstyle}) && ( $args{tagstyle} eq 'slash' ) ){
+					$slashtags = 1;
+				}
+
+				#print "processinfoslash\n";
+				my $function = '-';
+				my $lastline = pop @doc;
+				$lastline =~ /sub (\w*)/;
+				if ( defined($1) ){
+								$function = $1;
+				}
+
+				my $actualtag = 'description';
+				my @tagcontent;
+				while ( my $l = shift @doc ){
+						#	print "      actualtag 1: $actualtag line: $l";
+								$l =~ s/^\s*//;
+								my $tag;
+								if ( $slashtags ){
+									$tag = $1 if ( $l =~ /(\w*):/);
+								} else {
+									if ( $l =~ /^#\* *(.*):*/ ){
+										$tag = $1;
+										$tag =~ s/:$//;
+									}									
+								}
+								#print "tag: $tag\n" if ( defined($tag));
+								if ( defined($tag) && exists($tags{$tag}) && (length($tag)>1) ){ # found a tag
+												my $tag = $1;
+												if ( scalar( @tagcontent ) >0 ){
+																$self->process_tag( tag=>$actualtag, content=>\@tagcontent, function=>$function );
+																undef @tagcontent;
+												}
+												if ( $l =~ /\w*:* *\w?/ ){ # text comes direct after the tag..
+																$l =~ s/\w*:* *//;
+																push @tagcontent, $l;
+												}
+
+												$actualtag = $tag;
+								} else {
+										#print "actualtag: $actualtag line: $l";
+												push @tagcontent, $l;
+								}
+				}
+				$self->process_tag( tag=>$actualtag, content=>\@tagcontent, function=>$function );
+}
+
+## processes a tag with it's content.
+sub process_tag{
+				my $self = shift;
+				my %args = @_;
+
+
+				my $function = '-';
+				$function = $args{function} if ( exists($args{function}) );
+
+					print "\nprocess_tag: function: $function\ntag: $args{tag}\n content:".join("",@{$args{content}});
+			 $args{tag} = $translatetags->{$args{tag}} if ( exists( $translatetags->{$args{tag}} ) );
+					print "\nprocess_tag: function: $function\ntag: $args{tag}\n ";
+
+			 if ( $args{tag} eq 'args' ){
+							 if ( $args{content}->[0] =~ /\(named\)/ ){
+											 $args{content}->[0] =~ s/\s*\(named\)\s*//;
+											 $self->set_element_attribute( function=>$function, tag=>$args{tag}, attribute=>'named', value=>'1' );
+							 }
+							 #foreach my $param ( @{$args{content}} ){
+							 #			 next if ( ! ( $param =~ /\w?/ ) ); # next when no chars
+
+
+
+							 $self->set_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
+			 } else {
+							 $self->set_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
+			 }
+}
+
+
+## parses the file arg1, sets the variables
+sub parsefile{
+				my $self = shift;
+				my $file = shift;
+
+				my @f = snippets::readfile( filename=>$file );
+				#print @f;
+				#	print "------\n";
+
+				my $fn = fileparse( $file );
+				$self->set_element_content( tag=>'scriptname', content=>[ $fn ] );
+
+				my $ln = 1; # linenumber
+				# Process the script description, located at the head of the file
+				if ( ($f[1] =~ /^#/ ) && !($f[1]=~/^#\*/) ){
+								#print "$f[1]";
+								my @doc;
+								while ( $f[$ln] =~ /^#/ ){ # '##' style for the description -
+																					 # Let's also display the first comment lines as description, if they are 
+																					 # commented with '#' only.
+												$f[$ln] =~ s/^#* *//;
+												#	print "$f[$ln]\n";
+												push @doc, $f[$ln];
+												$ln++;
+								}
+								push @doc, "";
+								$self->process_info( doc=>\@doc, tagstyle=>'slash' );
+								#$self->append_element_content( tag=>'description', content=>[$f[$ln]]);
+				} else { # '#* tag found.
+								my @doc;
+								while ( $f[$ln] =~ /^#/ ){
+												push @doc, $f[$ln];
+												$ln++;
+								}
+								push @doc, $f[$ln]; # Append also the next line which isn't commented anymore
+								$self->process_info( doc=>\@doc );
+				}
+
+
+				while ( scalar( @f ) > $ln ){
+								 if ( $f[$ln] =~ /^##/ ){ 
+								 				# ## style description
+												my @doc;
+												push @doc, " \n" if ( !($f[$ln-2] =~ /##/) );
+												while ( $f[$ln] =~ /##/){
+																$f[$ln] =~ s/.*##//;
+																$f[$ln] =~ s/^ *//;
+																push @doc, $f[$ln] if ( length( $f[$ln] ) > 1 );
+																$ln++;
+												}
+												if ( $f[$ln] =~ /^sub / ){ # The extracted doc section belongs to a sub
+																push @doc, $f[$ln];
+																$self->process_info( doc=>\@doc, tagstyle=>'slash' );
+												} else {
+																#push @{$self->{info}->{description}}, "\n";
+																#push @{$self->{info}->{description}}, @doc;
+																#push @{$self->{info}->{description}}, $f[$ln];
+																$self->append_element_content( tag=>'globals', content=>[ @doc, $f[$ln] ] ); # TODO
+												}
+								} else { 
+												if ( $f[$ln] =~ /^#\*/ ){# Taginfo
+																
+												}
+								}
+								$ln++;
+				}
+
+				#	print "Dump:\n", Dumper( $self->{doc} ),"\n";
+				#print "description: \n";
+				#print @{$self->{info}->{description}->{content}};
+}
+
+
+## Returns info about the script ( scriptname, version, author, Copyright ) as string
+sub script_info{
+		my $self = shift;
+		return $self->get_element_content(tag=>'scriptname')." Version ".$self->get_element_content(tag=>'version').
+						", (C) ".$self->get_element_content(tag=>'year')." ".$self->get_element_content(tag=>'author');
+}
+
+## Returns info about the license, formatted with \n
+sub license_info{
+		my $self = shift;
+
+		if ( exists($licenseinfo->{$self->get_element_content( tag=>'license' )}) ){
+				my $l = $licenseinfo->{$self->get_element_content( tag=>'license' )};
+				$l =~ s/SCRIPTNAME/$scriptname/g;
+				return $l;
+		} else {
+				return "License: ",$self->get_element_content( tag=>'license' ),"\n";
+		}
+}
+
+## Prints the script's version and exits the script.
+sub print_version{
+				my $self = new();
+				$self->parsescript(); 
+				
+				print $self->script_info(),"\n\n";
+				print $self->license_info(),"\n";
+
+				exit 0;
+
+}
+				
+## Print's the scripts description and usage, exits.
+sub print_help{
+				my $self = new();
+				$self->parsescript(); 
+
+				print $self->script_info(),"\n";
+				print $self->license_info();
+				print "\n";
+				print $self->get_element_content(tag=>'description')."\n";
+				print "Usage:\n".$self->get_element_content(tag=>'usage')."\n" if ( !$self->get_element_attribute( tag=>'usage', attribute=>'default' ) );
+
+				exit 0;
+}
+
+sub print_license{
+		my $self = new();
+		$self->parsescript();
+
+		print $self->script_info(),"\n\n";
+		
+		if ( exists( $licenses->{$self->get_element_content( tag=>'license' )} ) ){
+				print $licenses->{$self->get_element_content( tag=>'license' )},"\n";
+		} else {
+				print "No info about this license stored.\nPlease visit (someurl) for more info..\n\n";
+		}
+
+		exit 0;
+}
+
+1;

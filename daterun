@@ -1,0 +1,84 @@
+#!/usr/bin/perl
+
+print "daterun started\n";
+
+$tag = `date +%w`;
+$stunde = `date +%k`;    
+
+#$tag = @ARGV[0];
+#$stunde = @ARGV[1];
+
+#print $tag,"\n";
+#print $stunde,"\n";
+
+$file = $0;
+
+#print "Öffne: ",$file, "\n"; 
+
+open( FILE, $file );
+@content = <FILE>;
+close( FILE );
+
+chomp @content;
+
+while ( ! ( @content[0] =~ /^-----/ )  )
+{
+    shift( @content );
+}
+shift ( @content );
+shift ( @content );
+
+foreach $s ( @content )
+{
+    @line = split(/\s{1,}/, $s, 3 );
+    #    @line[0] =~ tr/\t/ /;
+    @tagd = split( /-/, @line[0] );
+    #    print "Tag: ", @tagd[0], "-", @tagd[1], "\n";
+    if ( ( @tagd[0] eq "*" ) || 
+        ( ( @tagd[0] =~ /\d/ ) && 
+         ( ( $tag == @tagd[0] ) ||
+          ( ( @tagd[1] =~ /\d/ ) && ( $tag > @tagd[0] ) && ( $tag <= @tagd[1] ) ) ) ) )
+    {
+        #   print "Tag stimmt\n";
+        @stunded = split( /-/, @line[1] );
+        #print "Stunde: ", @stunded[0], "-", @stunded[1], "\n";
+        if  ( ( @stunded[0] eq "*" ) ||
+             ( ( @stunded[0] =~ /\d/ ) &&
+              ( ( $stunde == @stunded[0] ) || 
+               ( ( @stunded[1] =~ /\d/ ) && ( $stunde > @stunded[0] ) && ( $stunde <= @stunded[1] ) ) ) ) )
+        {
+            #   print "Stunde passt auch\n";
+            if ( fork == 0 )
+            {
+                print "Running: @line[2]\n";
+                exec @line[2];
+                exit;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+$Datenliste="
+Hier beginnen die Daten
+
+Format :·
+Tages-Angaben : 0 = Sonntag, 6 = Samstag·
+Stunden : 0-24·
+Bereiche : Von-Bis ( Ohne Leerzeichen ), oder *·
+Script : Den Befehl..·
+
+--------------------------------------- Start Data -------------------------------------
+Tag   Stunde  Script·
+
+0     *       dtb echo Sonntag..
+1-3   10-20    dtb hallo
+
+
+
+"

@@ -1,0 +1,76 @@
+#!/usr/bin/perl -w
+# creates a new file arg1 from the templates, sets the executable bits
+# chooses the templates according to the file's ending.
+# Fires vim
+#
+# Usage:
+# evi scriptname
+
+
+BEGIN{
+		use File::Basename;
+		($name,$path,$suffix) = fileparse ($0);
+		print "path: $path";
+		push @INC, "$path/perl";
+}
+
+
+
+use documentation;
+use Misc::Arguments;
+use Misc::Hashes;
+
+## Stores the templates
+my $templates = { pl=><<'ENDT'
+#!/usr/bin/perl -w
+ENDT
+		, sh=><<'ENDT'
+#!/bin/bash
+ENDT
+, c=><<'ENDT'
+#include <stdio.h>
+ENDT
+, cpp=><<'ENDT'
+#include <stdio.h>
+ENDT
+
+};
+
+## Stores the endings which should be chmoded to a+x
+my $executables= Misc::Hashes::make_hashref( qw/pl sh/ );
+
+if ( @ARGV != 1 ){
+		documentation::print_help();
+}
+
+
+
+if ( -e $ARGV[0] ){
+		print "File exists !!\n";#Exit.\n";
+		system("vi $ARGV[0]");
+		exit 1;
+}
+
+$ARGV[0] =~ /.*\.(\w*)$/;
+my $ending = $1;
+
+
+if ( exists( $templates->{$ending} ) ){
+		open F, ">$ARGV[0]";
+		print F $templates->{$ending};
+		close F;
+} else {
+		system( "touch $ARGV[0]" );
+}
+
+system( "chmod a+x $ARGV[0]" ) if ( exists( $executables->{$ending} ) );
+
+system("vi $ARGV[0]");
+
+
+
+
+
+
+
+

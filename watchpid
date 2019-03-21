@@ -1,0 +1,48 @@
+#!/usr/bin/perl -w
+## watchpid [pid/process name] [command]
+## Watch pid or process name and excute command as soon as the process dies
+
+if ( ! defined( $ARGV[0] ) || ( $ARGV[0] eq '-h' ) || ( $ARGV[0] eq '--help') ) {
+				print "watchpid [pid/process name] [command]\nWatch pid or named process and excute command as soon as the process  dies\n";
+				exit 0;
+}
+
+my $p = "/proc/$ARGV[0]";
+
+if ( $ARGV[0] =~ /\D+?/ ){
+	my $a = `pidof $ARGV[0]`;
+	chomp $a;
+	#print $a,"XX\n";
+	if ( $a eq '' ){
+		print "Unknown parameter or process $ARGV[0]\n";
+		exit 1;
+	}
+
+	if ( $a =~ / / ){  # Several pids to watch
+		my @pids = split(' ', $a);
+		print "Watching pids: $a\n";
+		my $b = 0;
+		do {
+			sleep 3;
+			$b = 0;
+			foreach my $pid ( @pids ){
+				if ( -e "/proc/$pid" ){
+					$b = 1;
+				}
+			}
+		} while ( $b );
+		system ( $ARGV[1] );
+		exit 0;
+	}
+
+	$p = "/proc/$a";
+
+}
+
+
+sleep (3) while ( -e $p );
+
+system( $ARGV[1] );
+
+
+

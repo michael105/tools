@@ -1,0 +1,264 @@
+#!/usr/bin/perl
+##preplace [options]
+##Interactively replace all occurrences of param -f with param -t in files matched by -g.
+##f is a regular expression.
+## 
+##Needed params:
+## -f "Regexpression" : What to replace
+## -t "string" : Replace with string
+## 
+##Optional params: 
+## -a ask for every occurrence
+## -g file globbing, e.g. -g "*.pl" 
+##    defaults to "*"
+## -r recursion, recurse into subdirectories
+## -h show this help
+## -v show version and copyright information
+##
+# Copyright (c) 2006 Michael (misc) Myer, misc.myer@zoho.com
+# 
+
+BEGIN{
+		use File::Basename;
+		($name,$path,$suffix) = fileparse ($0);
+		print "path: $path";
+		push @INC, "$path/perl";
+}
+
+
+my $version = "Version: 0.1";
+
+
+
+my $copyright = << 'ENDCOPYING';
+preplace, Copyright (c) 2006 Michael (misc) Myer, misc.myer@zoho.com.
+Licensed under the GNU GPL.
+This script comes with ABSOLUTELY NO WARRANTY !
+ENDCOPYING
+
+
+
+
+
+my $help = << 'ENDHELP';
+preplace [options]
+Interactively replace all occurrences of param -f with param -t in files matched by -g.
+f is a regular expression.
+ 
+Needed params:
+ -f "Regexpression" : What to replace
+ -t "string" : Replace with string
+ 
+Optional params: 
+ -a ask for every occurrence
+ -g file globbing, e.g. -g "*.pl" 
+    defaults to "*"
+ -r recursion, recurse into subdirectories
+ -h show this help
+ -v show version and copyright information
+ 
+ENDHELP
+
+
+
+
+use Getopt::Std;
+use Term::ANSIColor;
+
+use Misc::Arguments;
+
+
+my $opt = Misc::Arguments::parse('r f=s t=s a g=s r h v',2);
+
+if ( exists($opt->{v}) ){
+				print $copyright;
+				print $version."\n";
+				exit(0);
+}
+if ( !exists($opt->{f}) || !exists($opt->{t}) || exists($opt->{h}) ){
+				print $copyright;
+				print $version."\n\n";
+				print $help;
+				exit 0;
+}
+
+
+
+
+
+my $args = '';
+
+$args .= '-R ' if ( exists($opt->{r}) ); 
+
+
+$args .= '-E "'.$opt->{f}.'" ';
+$opt->{f} =~ s/"/\\"/g; # Replace " with \"
+#$opt->{f} =~ s//\\"/g; # Replace " with \"
+#$opt_g = '*' if ( !exists($opt_g) );
+#$args .= $opt_g; 
+
+
+#print "$args\n";
+
+if ( exists( $opt->{r} )){
+	print "Ja.\n";
+	#@f = `find . -name "$opt_g"`;
+	#			chomp @f;
+	#			$args .= join(' ', @f );
+	$args .= "-r ";
+	if ( exists($opt->{g}) ){
+		$args .= "--include '$opt->{g}' ";
+	} else {
+		$args .= '* ';
+	}
+} else {
+	if ( exists($opt->{g}) ){
+		$args .= $opt->{g};
+	} else {
+		$args .= '* ';
+    }
+}
+
+#print "find . -name \"$opt_g\"\n";
+print @f;
+print "\n\ngrep -l $args\n";
+@files = `grep -l $args`;
+
+#print "grep -l $args\n";
+#print @files;
+
+
+if ( scalar( @files ) <1 ){
+				print "Nothing to do.\n";
+				exit 0;
+}
+
+# weed out duplicate entries..
+my %hash = map { $_ => 1 } @files;
+@files = keys( %hash );
+
+
+if ( exists( $opt->{a} )){
+				print @files;
+				print "Going to edit the files above.\n";
+				print "Hit [enter] to continue, [CTRL]-[C] to abort.\n";
+				$c = <STDIN>;
+				exit if ( $c ne "\n" );
+}
+
+chomp @files;
+
+
+
+foreach my $file ( @files ){
+				print color 'yellow';
+				print "Editing file:  $file\n";
+				print color 'reset';
+				open F, $file;
+				@f = <F>;
+				close F;
+				#print @f;
+				
+				my @newfile;
+				foreach my $line ( @f ){
+								my $s = $line;
+								if ( ! ($s =~ /$opt->{f}/) ){
+									#print "no: $line\n";
+												push @newfile, $line;
+												next;
+								}
+								if ( exists( $opt->{a} ) ){
+												print color 'bold blue';
+												print "line: $line";
+												print color 'reset';
+								}
+								my @a = split /($opt->{f})/, $line;
+								#print "a:  ".scalar(@a)."\n";
+								#print join("\n",@a);
+								
+								my @newline;
+								$oc = shift @a;
+#								$oc = shift @a if ( ! $oc );
+								while ( defined($oc) ){
+												my $oc2 = $oc;
+												if ( $oc2 !~ /$opt->{f}/ ){
+																#print "no2: $oc \n";
+																push @newline, $oc;
+																$oc = shift @a;
+																next;
+												}
+												
+												#print "oc: $oc\n";
+												if ( exists( $opt->{a} ) ){
+																print join('',@newline);
+																print color 'bold green';
+																print $oc;
+																print color 'reset';
+																print join('',@a);
+																print "Replace ? (n - no/y - yes/a - all/b - skip this file)  ";
+																$c = <STDIN>;
+																if ( $c =~ /^y|^a|^b/ ){
+																				#print "repl.\n";
+																				$oc = $opt->{t};  #=~ s/$opt_f/$opt_t/;
+																				if ( $c =~ /^a/ ){
+																					delete $opt->{a};
+																				}
+																				goto ENDOFLOOP if ( $c =~ /^b/ );
+																				print join('',@newline);
+																				print color 'bold green';
+																				print $oc;
+																				print color 'reset';
+																				print join('',@a);
+
+																}
+												} else {
+																$oc = $opt->{t};
+												}
+												push @newline, $oc;
+												$oc = shift @a;
+								}
+								push @newfile, join('',@newline);								
+				}
+				open F, ">$file";
+				print F @newfile;
+				close F;
+ENDOFLOOP:
+#				print "\n";
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
