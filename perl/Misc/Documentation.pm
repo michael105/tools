@@ -1236,6 +1236,9 @@ END_TMPL
 our $TMPL_adoc = << "END_TMPL";
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == <TMPL_VAR name=name> 
 
 === NAME
@@ -1244,7 +1247,8 @@ our $TMPL_adoc = << "END_TMPL";
 
   <TMPL_IF name=shortdescription><TMPL_VAR name=shortdescription></TMPL_IF>
   Version: <TMPL_VAR name=version> 
-  Location: <TMPL_VAR name=location>
+	
+link:<TMPL_VAR name=location>[<TMPL_VAR name=location>]
 
 
 === DESCRIPTION
@@ -1299,6 +1303,8 @@ our $TMPL_adoc = << "END_TMPL";
 ```
 
 </TMPL_UNLESS>
+
+link:README.adoc[Index]
 END_TMPL
 
 

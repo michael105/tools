@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::ReadKey 
 
 === NAME
@@ -9,7 +12,8 @@
 
   provides readkey functions
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/ReadKey.pm
+	
+link:/home/micha/git/tools/perl/Misc/ReadKey.pm[/home/micha/git/tools/perl/Misc/ReadKey.pm]
 
 
 === DESCRIPTION
@@ -56,3 +60,5 @@ waitkey_dots( wait seconds, dots per seconbd )
 ```
 
 
+
+link:README.adoc[Index]

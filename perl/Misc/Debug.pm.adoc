@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::Debug 
 
 === NAME
@@ -9,7 +12,8 @@
 
   debug functions
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/Debug.pm
+	
+link:/home/micha/git/tools/perl/Misc/Debug.pm[/home/micha/git/tools/perl/Misc/Debug.pm]
 
 
 === DESCRIPTION
@@ -140,3 +144,5 @@ Starts the timer
 ```
 
 
+
+link:README.adoc[Index]

@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::MechanizeFunctions 
 
 === NAME
@@ -9,7 +12,8 @@
 
   Some  helper functions for WWW::Mechanize;
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/MechanizeFunctions.pm
+	
+link:/home/micha/git/tools/perl/Misc/MechanizeFunctions.pm[/home/micha/git/tools/perl/Misc/MechanizeFunctions.pm]
 
 
 === DESCRIPTION
@@ -60,3 +64,5 @@
 ```
 
 
+
+link:README.adoc[Index]

@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::Filter 
 
 === NAME
@@ -9,7 +12,8 @@
 
   Might be named inplace-template
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/Filter.pm
+	
+link:/home/micha/git/tools/perl/Misc/Filter.pm[/home/micha/git/tools/perl/Misc/Filter.pm]
 
 
 === DESCRIPTION
@@ -82,3 +86,5 @@ Filters all lines between and including startpattern and endpattern
 ```
 
 
+
+link:README.adoc[Index]

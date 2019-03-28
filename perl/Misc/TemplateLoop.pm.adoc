@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::TemplateLoop 
 
 === NAME
@@ -9,7 +12,8 @@
 
   Eases Loops for templates
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/TemplateLoop.pm
+	
+link:/home/micha/git/tools/perl/Misc/TemplateLoop.pm[/home/micha/git/tools/perl/Misc/TemplateLoop.pm]
 
 
 === DESCRIPTION
@@ -76,3 +80,5 @@ Sorts the loop after the values of the supplied key
 ```
 
 
+
+link:README.adoc[Index]

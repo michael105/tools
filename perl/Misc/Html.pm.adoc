@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::Html 
 
 === NAME
@@ -9,7 +12,8 @@
 
   Some helper subs related to html 
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/Html.pm
+	
+link:/home/micha/git/tools/perl/Misc/Html.pm[/home/micha/git/tools/perl/Misc/Html.pm]
 
 
 === DESCRIPTION
@@ -57,3 +61,5 @@ umlautstohtml::
 ```
 
 
+
+link:README.adoc[Index]

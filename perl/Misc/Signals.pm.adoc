@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::Signals 
 
 === NAME
@@ -9,7 +12,8 @@
 
   Class for managing the sending and receiving of signals.
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/Signals.pm
+	
+link:/home/micha/git/tools/perl/Misc/Signals.pm[/home/micha/git/tools/perl/Misc/Signals.pm]
 
 
 === DESCRIPTION
@@ -81,3 +85,5 @@ send_signal::
 ```
 
 
+
+link:README.adoc[Index]

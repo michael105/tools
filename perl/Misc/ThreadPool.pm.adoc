@@ -1,6 +1,9 @@
 
 :hardbreaks:
 
+link:README.adoc[Index]
+
+
 == Misc::ThreadPool 
 
 === NAME
@@ -9,7 +12,8 @@
 
   A test implementation of a pool of threads,
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/Misc/ThreadPool.pm
+	
+link:/home/micha/git/tools/perl/Misc/ThreadPool.pm[/home/micha/git/tools/perl/Misc/ThreadPool.pm]
 
 
 === DESCRIPTION
@@ -123,3 +127,5 @@ returns undef if there is no such resultid.
 ```
 
 
+
+link:README.adoc[Index]
