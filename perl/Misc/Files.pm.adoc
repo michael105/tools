@@ -40,7 +40,7 @@ Preserves ownership if possible, but doesn't check whether it is allowed to pres
 
 === WEBSITE
 
-http://www.github.com/michael105:"http://www.github.com/michael105"
+*http://www.github.com/michael105*
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com

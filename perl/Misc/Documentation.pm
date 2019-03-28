@@ -1281,7 +1281,7 @@ our $TMPL_adoc = << "END_TMPL";
 <TMPL_UNLESS name=noextradoc>
 === WEBSITE
 
-<TMPL_VAR name=webpage>:"<TMPL_VAR name=webpage>"
+*<TMPL_VAR name=webpage>*
 
 === AUTHOR
   <TMPL_VAR name=author> <TMPL_VAR name=email>

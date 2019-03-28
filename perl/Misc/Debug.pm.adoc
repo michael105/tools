@@ -111,7 +111,7 @@ Starts the timer
 
 === WEBSITE
 
-http://www.github.com/michael105:"http://www.github.com/michael105"
+*http://www.github.com/michael105*
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
