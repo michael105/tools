@@ -1,4 +1,4 @@
-package filter;
+package Misc::Filter;
 
 BEGIN{
 				use Exporter;

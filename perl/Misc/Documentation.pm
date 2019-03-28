@@ -212,6 +212,18 @@ sub append_element_content{
 				my %args = @_;
 
 				chomp @{$args{content}};
+				if ( (!exists($args{function} ) || ( $args{function} eq '-')) && ($args{tag} eq 'description') ){ # Script info section, tag description
+
+					my $c = ${$args{content}}[0];
+					if ( $c !~ /,\n/ ){
+#						${$args{content}}[0]='';
+
+						$self->set_element_content( tag=>'shortdescription', content=>[ $c ] );
+#						return if ( scalar( @{$args{content}} ) <2 );
+					}
+				}
+
+
 
 				if ( exists( $args{function} ) && $args{function} ne '-' ){
 								if ( Misc::Snippets::strexist($self->{doc}->{functions}->{$args{function}}->{$args{tag}}->{content})){
@@ -491,27 +503,28 @@ sub process_info_slash{ # Processes an info block with '##' tags
 sub process_tag{
 				my $self = shift;
 				my %args = @_;
+				#print "args: ", join(" - " ,@{$args{content}} );
 
 
 				my $function = '-';
 				$function = $args{function} if ( exists($args{function}) );
 
-#					print "\nprocess_tag: function: $function\ntag: $args{tag}\n content:".join("",@{$args{content}});
+				#				print "\nprocess_tag: function: $function\ntag: $args{tag}\n content:".join("",@{$args{content}});
 			 $args{tag} = $translatetags->{$args{tag}} if ( exists( $translatetags->{$args{tag}} ) );
 
 			 if ( $args{tag} eq 'args' ){
 							 if ( $args{content}->[0] =~ /\(named\)/ ){
 											 $args{content}->[0] =~ s/\s*\(named\)\s*//;
-											 $self->set_element_attribute( function=>$function, tag=>$args{tag}, attribute=>'named', value=>'1' );
+											 $self->append_element_attribute( function=>$function, tag=>$args{tag}, attribute=>'named', value=>'1' );
 							 }
 							 #foreach my $param ( @{$args{content}} ){
 							 #			 next if ( ! ( $param =~ /\w?/ ) ); # next when no chars
 
 
 
-							 $self->set_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
+							 $self->append_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
 			 } else {
-							 $self->set_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
+							 $self->append_element_content( tag=>$args{tag}, content=>$args{content}, function=>$function );
 			 }
 }
 
