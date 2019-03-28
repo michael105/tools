@@ -1,2 +1,31 @@
-Couldn't find documentation for Misc::HttpRequest.pm
-Exit.
+
+
+== Misc::HttpRequest 
+
+=== NAME
+ Misc::HttpRequest - Handles an httprequest
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/HttpRequest.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Handles an httprequest
+
+
+=== METHODS
+
+request::
+   
+
+    - Arguments:
+
+    The client ( io::socket::INET server's accept response )
+
+   - Returns:
+
+    ref to hash : { 
+
+
+
+

@@ -1,2 +1,48 @@
-Couldn't find documentation for Misc::Signals.pm
-Exit.
+
+
+== Misc::Signals 
+
+=== NAME
+ Misc::Signals - Class for managing the sending and receiving of signals.
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Signals.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Class for managing the sending and receiving of signals.
+Only function, which can be callen directly, is emit.
+
+Instead inherit packages, which should be able to send or receive signals,
+from Misc::Signals::Sender and/or Misc::Signals::Receiver
+
+TODO Make somehow interprocess-communication possible
+Make something like a dump function, 
+dumping out all connected signals / slots wit the according packagenames
+
+
+
+=== METHODS
+
+connect_signal::
+   
+
+
+disconnect_signal::
+
+emit::
+   
+emit a signal
+
+    - Arguments:
+
+    the sender object
+	the signal name
+
+
+send_signal::
+   
+
+
+
+

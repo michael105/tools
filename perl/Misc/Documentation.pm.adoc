@@ -1,2 +1,230 @@
-Couldn't find documentation for Misc::Documentation.pm
-Exit.
+
+
+== Misc::Documentation 
+
+=== NAME
+ Misc::Documentation - Extracts documentation from a script
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Documentation.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Extracts documentation from a script
+
+
+=== GLOBAL VARS
+   
+Default settings
+They are used, if the documentation in the script doesn't contain the appropriate tags
+our $author = 'Michael (misc) Myer';
+ 
+our $email = 'misc.myer@zoho.com';
+ 
+our $license = 'GPL';
+ 
+our $year = '2007';
+ 
+our $version = '0.1';
+ 
+our $webpage = 'http://www.misc2.net';
+ 
+our $description = "Not written yet.";
+ 
+our $usage = "Not written yet.";
+ 
+our $name = "Defaults to the script's/module's filename, if not supplied";
+ 
+Holds some info about different license
+NAME will be replaced with the script's name
+our $licenseinfo = {
+ 
+Holds the licenses
+our $licenses={ GPL=><<'ENDGPL'
+ 
+The linebreak string
+our $linebreak = "\n";
+
+=== METHODS
+
+append_element_content::
+   
+Appends content to a tag.
+Creates tag, if content doesn't exist
+To be overwritten by subclasses
+
+    - Arguments:
+
+    -function: <string>  appends the tag into the description of the function named by this argument
++ -tag: <string> the tag
++ -content: <arrayref> the content has "\n"'s at the end of each line
+
+
+delete_element_attribute::
+   
+Delete's the attribute of an element
+
+    - Arguments:
+
+    -function: <string>  appends the tag into the description of the function named by this argument
++ -tag: <string> the tag
++ -attribute: <string> the attribute
+
+
+delete_element_content::
+  Deletes a element's content
+Must be overwritten by subclasses
+
+    - Arguments:
+
+    -function: <string> deletes the tag of the description of the function, if specified
++ -tag: <string> the tag
+
+
+documentation::
+   
+Returns with a string containing the documentation of a script or package
+
+    - Arguments:
+
+    	-filename
+	-type: one of:  plain (plain text output)			
+					ansicolor (plain with ansi color codes)
+					html
+					pod
+					compactcolor
+					desc (short description)	
+adoc (asciidoc)
+	-noextradoc:	if true, won't display website, author and license					
+
+
+get_attributes::
+   
+Returns all atributes of an element
+
+    - Arguments:
+
+    -function: <string>  function named by this argument, if empty reads the info section
++ -tag: <string> the tag
++ -attribute: <string> the attribute
+
+   - Returns:
+
+    An array containing all attribute names
+
+
+get_element_attribute::
+   
+Returns with the attribute of an element, or undef of the attribute doesn't exist
+
+    - Arguments:
+
+    -function: <string>  function named by this argument, if empty reads the info section
++ -tag: <string> the tag
++ -attribute: <string> the attribute
+
+   - Returns:
+
+    The attribute's value, or undef if the attribute doesn't exist
+
+
+get_element_content::
+  returns with the content af an element
+
+    - Arguments:
+
+    -function: if defined, returns looks in the description of the function, otherwise in the description of the script
+-tag:	the tag for which to look, defaults to description
+
+   - Returns:
+
+    The elements content or 0
+
+
+get_elements::
+   
+Returns all elements of either the info section or the functions
+
+    - Arguments:
+
+    	-functions: if 1, returns all function names
+
+
+license_info::
+   
+Returns info about the license, formatted with \n
+
+
+new::
+   
+constructor
+
+
+parsefile::
+   
+parses the file arg1, sets the variables
+
+
+parsescript::
+   
+calls parsefile for the perl script itself
+
+
+print_help::
+   
+Print's the scripts description and usage, exits.
+
+
+print_license::
+   
+
+
+print_version::
+   
+Prints the script's version and exits the script.
+
+
+process_tag::
+   
+processes a tag with it's content.
+
+
+script_info::
+   
+Returns info about the script ( name, version, author, Copyright ) as string
+
+
+set_element_attribute::
+   
+Sets the attribute of an element
+Creates tag, if content doesn't exist
+To be overwritten by subclasses
+
+    - Arguments:
+
+    -function: <string>  appends the tag into the description of the function named by this argument
++ -tag: <string> the tag
++ -attribute: <string> the attribute
++ -value: <string> the value
+
+
+set_element_content::
+   
+Sets the content of a element.
+overwrites the old content !
+
+    - Arguments:
+
+    -function: <string> inserts the tag into the description of the function named by this argument
++ -tag: <string> the tag
++ -content: <arrayref> the content
+
+
+setdefaults::
+   
+Inits the default settings of this instance.
+callen by new
+
+
+
+

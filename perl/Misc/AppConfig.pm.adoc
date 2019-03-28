@@ -1,2 +1,37 @@
-Couldn't find documentation for Misc::AppConfig.pm
-Exit.
+
+
+== Misc::AppConfig 
+
+=== NAME
+ Misc::AppConfig - Global Application Configuration
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/AppConfig.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Global Application Configuration
+TODO implement getpath ... (homedir, datadir, configdir, ...)
+
+
+=== GLOBAL VARS
+   
+init the appconfig
+params (named):
+# -appname (optional)
+
+=== METHODS
+
+getconfig::
+   
+return the config hash of the specified section ("main" by default)
+Optional: A hash with default values
+
+
+saveconfig::
+   
+Save the config
+
+
+
+

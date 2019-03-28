@@ -1,2 +1,2 @@
-Couldn't find documentation for Misc::Function.pm
-Exit.
+Found Function.pm
+This doesn't look like a documented file.

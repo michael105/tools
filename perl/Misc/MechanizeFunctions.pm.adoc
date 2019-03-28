@@ -1,2 +1,27 @@
-Couldn't find documentation for Misc::MechanizeFunctions.pm
-Exit.
+
+
+== Misc::MechanizeFunctions 
+
+=== NAME
+ Misc::MechanizeFunctions - Some  helper functions for WWW::Mechanize;
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/MechanizeFunctions.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Some  helper functions for WWW::Mechanize;
+
+
+=== GLOBAL VARS
+   
+				sub {
+						my ( $value, $type, $max_width, $width, $precision, $showmode ) = @_;
+						$value;
+				}
+#		);
+
+=== METHODS
+
+
+

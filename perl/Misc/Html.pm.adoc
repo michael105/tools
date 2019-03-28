@@ -1,2 +1,24 @@
-Couldn't find documentation for Misc::Html.pm
-Exit.
+
+
+== Misc::Html 
+
+=== NAME
+ Misc::Html - Some helper subs related to html 
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Html.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Some helper subs related to html 
+Needs use utf8; in the calling module !!
+
+
+=== METHODS
+
+umlautstohtml::
+   
+
+
+
+

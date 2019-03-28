@@ -1,2 +1,50 @@
-Couldn't find documentation for Misc::wxConfigManager.pm
-Exit.
+
+
+== Misc::wxConfigManager 
+
+=== NAME
+ Misc::wxConfigManager - Not written yet.
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/wxConfigManager.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+
+
+
+=== GLOBAL VARS
+   
+TODO: make this class nonstatic..
+# make it possible via submitting a new derived AppConfig class to save the config in a sqlite db..
+ 
+our	$cfg; #new Config::Simple(syntax=>'ini');
+
+=== METHODS
+
+HandleButtonEvent::
+   
+
+
+LoadConfig::
+   
+
+
+SaveConfig::
+   
+
+
+ShowModalConfigDialog::
+   
+
+
+WidgetRead::
+   
+
+
+WidgetSet::
+   
+
+
+
+

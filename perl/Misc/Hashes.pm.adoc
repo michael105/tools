@@ -1,2 +1,99 @@
-Couldn't find documentation for Misc::Hashes.pm
-Exit.
+
+
+== Misc::Hashes 
+
+=== NAME
+ Misc::Hashes - Various functions for hashes
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Hashes.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Various functions for hashes
+
+
+=== METHODS
+
+flatten_hash::
+   
+converts a nested hash into a flat format
+
+    - Arguments:
+
+    ref to the hash
+
+   - Returns:
+
+    array with the lines
+
+
+hash_clone::
+   
+Make a deep copy of a hash
+
+    - Arguments:
+
+    hashref source
+
+   - Returns:
+
+    ref to the cloned hash
+
+
+hash_egrep::
+   
+Seeks in a nested hash for one or several values with a key matching a pattern.
+Usage:
+foreach my $ref ( hash_egrep( $hash, '%d' ) ){ $$ref = 'New Value' }
+
+    - Arguments:
+
+    -ref to hash
+-keyname
+
+   - Returns:
+
+    an array of refs to the values
+
+
+hash_grep::
+   
+Seeks in a nested hash for one or several values with a key.
+Usage:
+foreach my $ref ( hash_grep( $hash, 'keyname' ) ){ $$ref = 'New Value' }
+
+    - Arguments:
+
+    -ref to hash
+-keyname
+
+   - Returns:
+
+    an array of refs to the values
+
+
+hash_path::
+   
+Returns a hash's value or undef
+Iterates through the hashes, tests each hash with exists
+Usage:
+my $value = hash_path( $ref_to_hash, 'key1', 'key2' (,...) );
+
+   - Returns:
+
+    undef or the value
+
+
+make_hashref::
+   
+Returns a refenrence to a hash which keys are the supplied params, the values are all 1.
+
+
+unflatten_hash::
+   
+Converts the flat format of flatten_hash back to a hash
+
+
+
+

@@ -1,2 +1,43 @@
-Couldn't find documentation for Misc::TemplateLoop.pm
-Exit.
+
+
+== Misc::TemplateLoop 
+
+=== NAME
+ Misc::TemplateLoop - Eases Loops for templates
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/TemplateLoop.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Eases Loops for templates
+
+
+=== METHODS
+
+add::
+   
+Adds a new loop with the content, supplied as hash
+
+
+arrayref::
+   
+returns The array ref we need to parse into the loop_var
+
+
+new::
+   
+Erstellt das neue Loop Objekt
+
+
+sort::
+   
+Sorts the loop after the values of the supplied key
+
+    - Arguments:
+
+    the key
+
+
+
+

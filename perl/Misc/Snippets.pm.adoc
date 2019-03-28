@@ -1,2 +1,106 @@
-Couldn't find documentation for Misc::Snippets.pm
-Exit.
+
+
+== Misc::Snippets 
+
+=== NAME
+ Misc::Snippets - Various snippets 
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Snippets.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Various snippets 
+
+
+=== METHODS
+
+appendstring::
+   
+Appends the string to the supplied ref, if the ref is null, the ref is the string.
+
+    - Arguments:
+
+    ref
+the string to append
+
+
+convert_umlaute::
+   
+Convert German umlauts to 'ae', 'oe', ..
+
+
+default::
+   
+if arg1 is defined, return arg1, otherwise arg2 or, if arg2 is not defined, return 0.
+
+
+fdate::
+   
+Returns the current date in the format day.month.year
+
+
+fsize::
+   
+Returns the filesize in bytes
+
+
+ftime::
+   
+Returns the current time in the format hour:minute:seconds
+
+
+gettempfilename::
+   
+returns a unique temporary filename
+
+    - Arguments:
+
+    	a name to prepend to the filename
+
+   - Returns:
+
+    the filename, which is guaranteed to be unique
+
+
+hbytes::
+   
+Returns the supplied number as a splitted array: (Terabytes, Gigabytes, Megabytes, Kilobytes and bytes)
+
+
+quote::
+   
+quote: 
+" -> \"  
+' -> \'
+\ -> \\
+
+
+readfile::
+  reads a file and returns an array with it's content.
+can be callen with a named param filename or just the param filename.
+
+    - Arguments:
+
+    -filename: The filename
+
+   - Returns:
+
+    An array with the file's content
+
+
+savefilename::
+   
+Convert a given string to a "save" filename.
+Changes : German Umlauts to 'ae', 'oe', ..
+space to _
+Strips All Non alphabetic chars except: . _ + - : ,
+
+
+strexist::
+   
+Returns true if the supplied argument is defined and length > 0
+
+
+
+

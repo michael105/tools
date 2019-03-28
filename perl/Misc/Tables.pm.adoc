@@ -1,2 +1,71 @@
-Couldn't find documentation for Misc::Tables.pm
-Exit.
+
+
+== Misc::Tables 
+
+=== NAME
+ Misc::Tables - Dumps out a table
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Tables.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Dumps out a table
+
+
+=== GLOBAL VARS
+   
+Borders
+# Contains the chars of the borders, order: normal, none, compact
+
+=== METHODS
+
+add_row::
+   
+
+
+new::
+   
+Constructor
+
+    - Arguments:
+
+    -titles: Ref to an array with the colnames
+-widths:	Ref to an array with the cols' width in chars
+-maxwidths: Ref to an array containing the maximum colwidths in chars
+-bordertype: 'normal', 'none', 'compact'  - defaults to normal
+-align: 'left' (default), 'right'
+-termwidth: optional, otherwise tries to determine the size automatic..
+
+
+set_alignment::
+   
+
+
+set_bordertype::
+   
+
+
+set_maxwidths::
+   
+
+
+set_termwidth::
+   
+
+
+set_titles::
+   
+
+
+set_widths::
+   
+
+
+show::
+   
+Dumps out the table
+
+
+
+

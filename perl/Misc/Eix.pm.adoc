@@ -1,2 +1,26 @@
-Couldn't find documentation for Misc::Eix.pm
-Exit.
+
+
+== Misc::Eix 
+
+=== NAME
+ Misc::Eix - Some handling Functions for eix
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Eix.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+Some handling Functions for eix
+
+
+=== METHODS
+
+parse_compact::
+   
+args (named)
+-handler: ref to a handler, with the output of eix -c
+-array: ref,alternative to the handler
+
+
+
+

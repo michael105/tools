@@ -1,2 +1,23 @@
-Couldn't find documentation for Misc::ReadKey.pm
-Exit.
+
+
+== Misc::ReadKey 
+
+=== NAME
+ Misc::ReadKey - provides readkey functions
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/ReadKey.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+provides readkey functions
+
+readkey( wait seconds )
+readkey_usecs( wait seconds, wait usecs )
+waitkey_dots( wait seconds, dots per seconbd )
+
+
+=== METHODS
+
+
+

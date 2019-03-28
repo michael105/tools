@@ -1,2 +1,107 @@
-Couldn't find documentation for Misc::Debug.pm
-Exit.
+
+
+== Misc::Debug 
+
+=== NAME
+ Misc::Debug - debug functions
+  Version: 0.1 
+  Location: /home/micha/git/tools/perl/Misc/Debug.pm
+
+
+=== DESCRIPTION
+  Not written yet.
+debug functions
+
+
+
+=== GLOBAL VARS
+   
+This Global var enables (or disables by default) all debug messages, no matter of  the debug level and debug enabled.
+Change via $Misc::Debug::debug_everything = 1;
+our $debug_everything = 0;
+ 
+Enable debug messages of all levels
+debug_level is a number between 0 and 9
+our $debug_level = 9;
+ 
+our $debug_facility = 1;
+ 
+Overwrite this locally via our $debug_enabled = 0 ( 1 ),
+to enable or disable debugging within a package.
+our $debug_enabled = 1;
+ 
+Set this global var by enable_debug and disable_debug
+our $global_debug_enabled = 1;
+ 
+our $print_timer = 0;
+ 
+our $print_context = 0;
+ 
+
+
+=== METHODS
+
+dbg::
+   
+an alias for debug
+
+
+debug::
+   
+logs to debuglog, if [Debuglevel] is < the global debuglevel
+
+    - Arguments:
+
+    [int Debuglevel], string message	
+DebugLevel is only recognized, if the first param is a number between 0 and 9
+else this parameter is omitted
+
+
+disable_debug::
+   
+Disable debugging globally (On by default)
+
+
+do_debug::
+   
+Do the debug. Called internally by dbg and debug.
+
+
+enable_debug::
+   
+Enable debugging globally (On by default)
+
+
+initdebug::
+   
+redirect all messages to stderr to the debug file, if we don't log into the apache error log
+Is callen by this package itself, since we need this only if redirecting under modcgi.
+Debugging to file doesn't work with modperl. yet.
+
+
+log_to_file::
+   
+log to a file, pipe or device..
+
+    - Arguments:
+
+    filename
+
+
+printtimer::
+   
+debugs the elapsed time since starttimer
+
+
+setdebuglevel::
+   
+Sets the debuglevel
+
+
+starttimer::
+   
+Starts the timer
+
+
+
+
