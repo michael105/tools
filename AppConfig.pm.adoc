@@ -1,0 +1,78 @@
+
+:hardbreaks:
+
+link:README.adoc[Index]
+
+
+== Misc::AppConfig 
+
+=== NAME
+
+*Misc::AppConfig* 
+
+  Global Application Configuration
+  Version: 0.1 
+	
+link:/perl/Misc/AppConfig.pm[/perl/Misc/AppConfig.pm]
+
+
+=== DESCRIPTION
+
+  Global Application Configuration
+TODO implement getpath ... (homedir, datadir, configdir, ...)
+
+
+=== GLOBAL VARS
+   
+init the appconfig
+params (named):
+# -appname (optional)
+  
+=== METHODS
+
+getconfig::
+   
+return the config hash of the specified section ("main" by default)
+Optional: A hash with default values
+
+
+saveconfig::
+   
+Save the config
+
+
+
+
+=== WEBSITE
+
+*http://www.github.com/michael105*
+
+=== AUTHOR
+  Michael (misc) Myer misc.myer@zoho.com
+
+=== LICENSE
+
+```
+  
+      This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+  
+
+  
+```
+
+
+
+link:README.adoc[Index]

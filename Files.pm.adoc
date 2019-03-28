@@ -1,0 +1,77 @@
+
+:hardbreaks:
+
+link:README.adoc[Index]
+
+
+== Misc::Files 
+
+=== NAME
+
+*Misc::Files* 
+
+  Some Functions for file handling
+  Version: 0.1 
+	
+link:/perl/Misc/Files.pm[/perl/Misc/Files.pm]
+
+
+=== DESCRIPTION
+
+  Some Functions for file handling
+
+
+=== METHODS
+
+fcopy::
+  	
+copies files and directories, preserves attributes
+creates the target directory structure if needed
+Preserves ownership if possible, but doesn't check whether it is allowed to preserve ownership!
+
+    - Arguments:
+
+    + -source: sourcefile or directory
++ -destdir: 	destination directory
+-destfile: 	destination filename
+-directories: if true copies also directories recursively, overwrites existing data in dest!
+-handlers:	a hash with handler functions:
+{ sourceisdir=>sub{ .. }
+}
+
+
+
+
+=== WEBSITE
+
+*http://www.github.com/michael105*
+
+=== AUTHOR
+  Michael (misc) Myer misc.myer@zoho.com
+
+=== LICENSE
+
+```
+  
+      This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+  
+
+  
+```
+
+
+
+link:README.adoc[Index]

@@ -1,0 +1,90 @@
+
+
+== Misc::ThreadPool 
+
+=== NAME
+ Misc::ThreadPool - A test implementation of a pool of threads,
+  Version: 0.1 
+  Location: /perl/../perl/Misc/ThreadPool.pm
+
+
+=== DESCRIPTION
+  
+A test implementation of a pool of threads,
+Storing the results of the threads' jobs in a queue
+this is work in progress, please comment
+
+
+=== METHODS
+
+enqueue::
+   
+Enqueues a new job.
+
+    - Arguments:
+
+    The function name, which will be callen in the current context e.g. "main::function"
+Args to be supplied to the function
+
+
+jobs::
+   
+Returns the current number of jobs, in the queue and in work
+There's to remark that some threads could be out of your function,
+but still have some work to do within this module
+
+
+new::
+   
+Inititializes the threadpool
+
+    - Arguments:
+
+    -maxthreads: maximum number of threads (default:10)
+-maxpending: How many jobs may be enqueued, if you try to enqeue more jobs enqueue will block until a job has been done (default:20)
+-startthreads: Threads to start on startup (default:5)
+
+
+pendingjobs::
+   
+Returns the number of jobs currently in queue
+
+
+renqueue::
+   
+Enqueues a new job, and returns a resultid, which can be used to get the result of the function via threadpool_waitforresult or threadpool_getresult
+
+    - Arguments:
+
+    The function name, which will be callen in the current context. e.g. "main::function"
+Args to be supplied to the function
+
+
+shutdown::
+   
+Waits for all threads to finish their jobs and ends them
+sleeps for 1 second after doing his job, in the hope, that all threads will have cleaned up.
+Is, however, just for the cosmetic of not beeing warned that threads were running while exiting the script.
+
+
+threadsworking::
+   
+Returns the current number of working threads 
+There's to remark that some threads could be out of your function,
+but still have some work to do within this module
+
+
+wait::
+   
+blocks until all jobs are done
+
+
+waitforresult::
+   
+returns the result of the supplied resultid, 
+waits until the result is there.
+returns undef if there is no such resultid.
+
+
+
+

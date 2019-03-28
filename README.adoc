@@ -1,0 +1,87 @@
+:hardbreaks:
+
+== Index
+
+_Assorted tools.
+Mainly perl.
+Also a few modules I wrote, in the perl directory_
+
+
+=== preplace
+
+ is possibly the most useful tool -
+replace an occurance of a string with another string,
+optionally ask for each occurance,
+and show the result.
+
+
+=== watchpid
+
+ Watch a pid or named process,
+execute an argument when the process exits.
+
+
+
+
+=== Some of the modules, I've written in perl.
+
+
+
+link:AppConfig.pm.adoc[AppConfig.pm]::
+Global Application Configuration
+
+link:Arguments.pm.adoc[Arguments.pm]::
+Parses the script arguments via Getopt::Mixed.
+
+link:Debug.pm.adoc[Debug.pm]::
+debug functions
+
+link:Documentation.pm.adoc[Documentation.pm]::
+Extracts documentation from a script
+
+link:Eix.pm.adoc[Eix.pm]::
+Some handling Functions for eix
+
+link:Files.pm.adoc[Files.pm]::
+Some Functions for file handling
+
+link:Filter.pm.adoc[Filter.pm]::
+Might be named inplace-template
+
+
+link:Hashes.pm.adoc[Hashes.pm]::
+Various functions for hashes
+
+link:Html.pm.adoc[Html.pm]::
+Some helper subs related to html 
+
+link:HttpRequest.pm.adoc[HttpRequest.pm]::
+Handles an httprequest
+
+link:MechanizeFunctions.pm.adoc[MechanizeFunctions.pm]::
+Some  helper functions for WWW::Mechanize;
+
+link:ReadKey.pm.adoc[ReadKey.pm]::
+provides readkey functions
+
+link:Signals.pm.adoc[Signals.pm]::
+Class for managing the sending and receiving of signals.
+
+link:Snippets.pm.adoc[Snippets.pm]::
+Various snippets 
+
+link:Sqlite.pm.adoc[Sqlite.pm]::
+Sqlite helper
+
+link:Tables.pm.adoc[Tables.pm]::
+Dump out a table
+
+link:TemplateLoop.pm.adoc[TemplateLoop.pm]::
+Eases Loops for templates
+
+link:ThreadPool.pm.adoc[ThreadPool.pm]::
+A test implementation of a pool of threads,
+
+link:wxConfigManager.pm.adoc[wxConfigManager.pm]::
+0
+

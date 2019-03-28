@@ -1,0 +1,80 @@
+
+:hardbreaks:
+
+link:README.adoc[Index]
+
+
+== Misc::Arguments 
+
+=== NAME
+
+*Misc::Arguments* 
+
+  Parses the script arguments via Getopt::Mixed.
+  Version: 0.1
+0.3
+ 
+	
+link:/perl/Misc/Arguments.pm[/perl/Misc/Arguments.pm]
+
+
+=== DESCRIPTION
+
+  Parses the script arguments via Getopt::Mixed.
+shows: 
+- the script Misc::Documentation via Misc::Documentation::print_scriptdocu() if --help or -h is defined
+- the script version on --version or -v
+
+
+
+
+=== METHODS
+
+parse::
+   
+parses command line arguments.
+All Arguments which are not recognized will be left in @ARGV
+
+    - Arguments:
+
+    a string which describes the options:
+		optionname[(=|:)(s|i|f)]
+		=s :s    option takes a mandatory (=) or optional (:) string argument
+		=i :i    option takes a mandatory (=) or optional (:) integer argument
+		=f :f    option takes a mandatory (=) or optional (:) real number argument
+		>new     option is a synonym for option `new'
+		e.g. : "s=s d:i v verbose>v"	: -s takes a string, -d an integer, -v is a synonym for --verbose
+	the number of needed options (will print the help without enough options)
+an array of needed options (the short names)
+
+   - Returns:
+
+    a ref to an hash, the (short) options are the keys.
+
+
+
+
+=== WEBSITE
+
+*http://www.github.com/michael105*
+
+=== AUTHOR
+  Michael (misc) Myer
+Michael (misc) Myer
+ misc.myer@zoho.com
+
+=== LICENSE
+
+```
+  
+  GPL
+GPL
+
+  
+
+  
+```
+
+
+
+link:README.adoc[Index]

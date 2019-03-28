@@ -1,0 +1,147 @@
+
+:hardbreaks:
+
+link:README.adoc[Index]
+
+
+== Misc::Snippets 
+
+=== NAME
+
+*Misc::Snippets* 
+
+  Various snippets 
+  Version: 0.1 
+	
+link:/perl/Misc/Snippets.pm[/perl/Misc/Snippets.pm]
+
+
+=== DESCRIPTION
+
+  Various snippets 
+
+
+=== METHODS
+
+appendstring::
+   
+Appends the string to the supplied ref, if the ref is null, the ref is the string.
+
+    - Arguments:
+
+    ref
+the string to append
+
+
+convert_umlaute::
+   
+Convert German umlauts to 'ae', 'oe', ..
+
+
+default::
+   
+if arg1 is defined, return arg1, otherwise arg2 or, if arg2 is not defined, return 0.
+
+
+fdate::
+   
+Returns the current date in the format day.month.year
+
+
+fsize::
+   
+Returns the filesize in bytes
+
+
+ftime::
+   
+Returns the current time in the format hour:minute:seconds
+
+
+gettempfilename::
+   
+returns a unique temporary filename
+
+    - Arguments:
+
+    	a name to prepend to the filename
+
+   - Returns:
+
+    the filename, which is guaranteed to be unique
+
+
+hbytes::
+   
+Returns the supplied number as a splitted array: (Terabytes, Gigabytes, Megabytes, Kilobytes and bytes)
+
+
+quote::
+   
+quote: 
+" -> \"  
+' -> \'
+\ -> \\
+
+
+readfile::
+  reads a file and returns an array with it's content.
+can be callen with a named param filename or just the param filename.
+
+    - Arguments:
+
+    -filename: The filename
+
+   - Returns:
+
+    An array with the file's content
+
+
+savefilename::
+   
+Convert a given string to a "save" filename.
+Changes : German Umlauts to 'ae', 'oe', ..
+space to _
+Strips All Non alphabetic chars except: . _ + - : ,
+
+
+strexist::
+   
+Returns true if the supplied argument is defined and length > 0
+
+
+
+
+=== WEBSITE
+
+*http://www.github.com/michael105*
+
+=== AUTHOR
+  Michael (misc) Myer misc.myer@zoho.com
+
+=== LICENSE
+
+```
+  
+      This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+  
+
+  
+```
+
+
+
+link:README.adoc[Index]
