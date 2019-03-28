@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::Signals 
 
 === NAME
- Misc::Signals - Class for managing the sending and receiving of signals.
+
+*Misc::Signals* 
+
+  Class for managing the sending and receiving of signals.
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Signals.pm
 
 
 === DESCRIPTION
+
   Class for managing the sending and receiving of signals.
 Only function, which can be callen directly, is emit.
 
@@ -46,12 +51,15 @@ send_signal::
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -70,4 +78,6 @@ send_signal::
   
 
   
+```
+
 

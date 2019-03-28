@@ -1,9 +1,13 @@
 
+:hardbreaks:
 
 == Misc::Arguments 
 
 === NAME
- Misc::Arguments - Parses the script arguments via Getopt::Mixed.
+
+*Misc::Arguments* 
+
+  Parses the script arguments via Getopt::Mixed.
   Version: 0.1
 0.3
  
@@ -11,6 +15,7 @@
 
 
 === DESCRIPTION
+
   Parses the script arguments via Getopt::Mixed.
 shows: 
 - the script Misc::Documentation via Misc::Documentation::print_scriptdocu() if --help or -h is defined
@@ -46,7 +51,8 @@ an array of needed options (the short names)
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer
@@ -54,6 +60,8 @@ Michael (misc) Myer
  misc.myer@zoho.com
 
 === LICENSE
+
+```
   
   GPL
 GPL
@@ -61,4 +69,6 @@ GPL
   
 
   
+```
+
 

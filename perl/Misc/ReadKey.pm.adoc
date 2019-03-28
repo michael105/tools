@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::ReadKey 
 
 === NAME
- Misc::ReadKey - provides readkey functions
+
+*Misc::ReadKey* 
+
+  provides readkey functions
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/ReadKey.pm
 
 
 === DESCRIPTION
+
   provides readkey functions
 
 readkey( wait seconds )
@@ -21,12 +26,15 @@ waitkey_dots( wait seconds, dots per seconbd )
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -45,4 +53,6 @@ waitkey_dots( wait seconds, dots per seconbd )
   
 
   
+```
+
 

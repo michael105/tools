@@ -1234,16 +1234,21 @@ END_TMPL
 
 
 our $TMPL_adoc = << "END_TMPL";
+:hardbreaks:
 
 == <TMPL_VAR name=name> 
 
 === NAME
- <TMPL_VAR name=name> <TMPL_IF name=shortdescription>- <TMPL_VAR name=shortdescription></TMPL_IF>
+
+*<TMPL_VAR name=name>* 
+
+  <TMPL_IF name=shortdescription><TMPL_VAR name=shortdescription></TMPL_IF>
   Version: <TMPL_VAR name=version> 
   Location: <TMPL_VAR name=location>
 
 
 === DESCRIPTION
+
   <TMPL_VAR name=description>
 
 <TMPL_UNLESS name=usage_default><TMPL_IF name=name_script>USAGE<TMPL_ELSE>SYNOPSIS</TMPL_IF>
@@ -1253,7 +1258,7 @@ our $TMPL_adoc = << "END_TMPL";
 </TMPL_IF><TMPL_IF name=globals>
 === GLOBAL VARS
   <TMPL_VAR name=globals>
-</TMPL_IF><TMPL_UNLESS name=name_script>
+  </TMPL_IF><TMPL_UNLESS name=name_script>
 === METHODS
 <TMPL_LOOP name=functionloop>
 <TMPL_VAR name=functionname>::
@@ -1275,12 +1280,15 @@ our $TMPL_adoc = << "END_TMPL";
 </TMPL_UNLESS>
 <TMPL_UNLESS name=noextradoc>
 === WEBSITE
-  <TMPL_VAR name=webpage>
+
+<TMPL_VAR name=webpage>:"<TMPL_VAR name=webpage>"
 
 === AUTHOR
   <TMPL_VAR name=author> <TMPL_VAR name=email>
 
 === LICENSE
+
+```
   <TMPL_IF name=licensetext>
   <TMPL_VAR name=licensetext>
   <TMPL_ELSE>
@@ -1288,6 +1296,8 @@ our $TMPL_adoc = << "END_TMPL";
   </TMPL_IF>
 
   <TMPL_VAR name=website>
+```
+
 </TMPL_UNLESS>
 END_TMPL
 

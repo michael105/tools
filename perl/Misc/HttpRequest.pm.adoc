@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::HttpRequest 
 
 === NAME
- Misc::HttpRequest - Handles an httprequest
+
+*Misc::HttpRequest* 
+
+  Handles an httprequest
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/HttpRequest.pm
 
 
 === DESCRIPTION
+
   Handles an httprequest
 
 
@@ -29,12 +34,15 @@ request::
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -53,4 +61,6 @@ request::
   
 
   
+```
+
 

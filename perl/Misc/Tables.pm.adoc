@@ -1,22 +1,27 @@
 
+:hardbreaks:
 
 == Misc::Tables 
 
 === NAME
- Misc::Tables - Dumps out a table
+
+*Misc::Tables* 
+
+  Dump out a table
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Tables.pm
 
 
 === DESCRIPTION
-  Dumps out a table
+
+  Dump out a table
 
 
 === GLOBAL VARS
    
 Borders
 # Contains the chars of the borders, order: normal, none, compact
-
+  
 === METHODS
 
 add_row::
@@ -69,12 +74,15 @@ Dumps out the table
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -93,4 +101,6 @@ Dumps out the table
   
 
   
+```
+
 

@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::Debug 
 
 === NAME
- Misc::Debug - debug functions
+
+*Misc::Debug* 
+
+  debug functions
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Debug.pm
 
 
 === DESCRIPTION
+
   debug functions
 
 
@@ -37,7 +42,7 @@ our $print_timer = 0;
 our $print_context = 0;
  
 
-
+  
 === METHODS
 
 dbg::
@@ -105,12 +110,15 @@ Starts the timer
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -129,4 +137,6 @@ Starts the timer
   
 
   
+```
+
 

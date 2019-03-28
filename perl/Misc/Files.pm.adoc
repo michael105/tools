@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::Files 
 
 === NAME
- Misc::Files - Some Functions for file handling
+
+*Misc::Files* 
+
+  Some Functions for file handling
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Files.pm
 
 
 === DESCRIPTION
+
   Some Functions for file handling
 
 
@@ -34,12 +39,15 @@ Preserves ownership if possible, but doesn't check whether it is allowed to pres
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -58,4 +66,6 @@ Preserves ownership if possible, but doesn't check whether it is allowed to pres
   
 
   
+```
+
 

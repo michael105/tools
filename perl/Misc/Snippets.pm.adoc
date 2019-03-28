@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::Snippets 
 
 === NAME
- Misc::Snippets - Various snippets 
+
+*Misc::Snippets* 
+
+  Various snippets 
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Snippets.pm
 
 
 === DESCRIPTION
+
   Various snippets 
 
 
@@ -104,12 +109,15 @@ Returns true if the supplied argument is defined and length > 0
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -128,4 +136,6 @@ Returns true if the supplied argument is defined and length > 0
   
 
   
+```
+
 

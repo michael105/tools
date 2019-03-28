@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::wxConfigManager 
 
 === NAME
- Misc::wxConfigManager 
+
+*Misc::wxConfigManager* 
+
+  
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/wxConfigManager.pm
 
 
 === DESCRIPTION
+
   0
 
 
@@ -18,7 +23,7 @@ TODO: make this class nonstatic..
 # make it possible via submitting a new derived AppConfig class to save the config in a sqlite db..
  
 our	$cfg; #new Config::Simple(syntax=>'ini');
-
+  
 === METHODS
 
 HandleButtonEvent::
@@ -48,12 +53,15 @@ WidgetSet::
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -72,4 +80,6 @@ WidgetSet::
   
 
   
+```
+
 

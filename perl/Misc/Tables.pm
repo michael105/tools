@@ -1,5 +1,5 @@
 package Misc::Tables;
-## Dumps out a table
+## Dump out a table
 ## usage:
 ## use Misc::Tables;
 ## my $table = Misc::Tables->new( titles=>[ qw/col1 col2/ ], bordertype=>'normal' );

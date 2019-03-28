@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::ThreadPool 
 
 === NAME
- Misc::ThreadPool - A test implementation of a pool of threads,
+
+*Misc::ThreadPool* 
+
+  A test implementation of a pool of threads,
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/ThreadPool.pm
 
 
 === DESCRIPTION
+
   A test implementation of a pool of threads,
 Storing the results of the threads' jobs in a queue
 this is work in progress, please comment
@@ -88,12 +93,15 @@ returns undef if there is no such resultid.
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -112,4 +120,6 @@ returns undef if there is no such resultid.
   
 
   
+```
+
 

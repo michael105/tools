@@ -1,14 +1,19 @@
 
+:hardbreaks:
 
 == Misc::Documentation 
 
 === NAME
- Misc::Documentation - Extracts documentation from a script
+
+*Misc::Documentation* 
+
+  Extracts documentation from a script
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/Documentation.pm
 
 
 === DESCRIPTION
+
   Extracts documentation from a script
 
 
@@ -43,7 +48,7 @@ our $licenses={ GPL=><<'ENDGPL'
  
 The linebreak string
 our $linebreak = "\n";
-
+  
 === METHODS
 
 append_element_content::
@@ -228,12 +233,15 @@ callen by new
 
 
 === WEBSITE
-  http://www.github.com/michael105
+
+http://www.github.com/michael105:"http://www.github.com/michael105"
 
 === AUTHOR
   Michael (misc) Myer misc.myer@zoho.com
 
 === LICENSE
+
+```
   
       This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -252,4 +260,6 @@ callen by new
   
 
   
+```
+
 
