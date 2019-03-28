@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-provides readkey functions
+  provides readkey functions
 
 readkey( wait seconds )
 readkey_usecs( wait seconds, wait usecs )

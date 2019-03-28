@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Extracts documentation from a script
+  Extracts documentation from a script
 
 
 === GLOBAL VARS

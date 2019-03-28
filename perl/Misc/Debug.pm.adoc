@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-debug functions
+  debug functions
 
 
 

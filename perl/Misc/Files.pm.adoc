@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Some Functions for file handling
+  Some Functions for file handling
 
 
 === METHODS

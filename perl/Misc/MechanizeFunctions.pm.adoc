@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Some  helper functions for WWW::Mechanize;
+  Some  helper functions for WWW::Mechanize;
 
 
 === GLOBAL VARS

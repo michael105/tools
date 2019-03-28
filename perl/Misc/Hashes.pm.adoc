@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Various functions for hashes
+  Various functions for hashes
 
 
 === METHODS

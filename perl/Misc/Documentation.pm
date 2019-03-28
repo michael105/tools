@@ -68,9 +68,10 @@ our $version = '0.1';
 ## 
 our $webpage = 'http://www.misc2.net';
 ## 
-our $description = "Not written yet.";
+our $description = "";
+#our $description = "Not written yet.";
 ## 
-our $usage = "Not written yet.";
+our $usage = "";
 ##
 our $name = "Defaults to the script's/module's filename, if not supplied";
 

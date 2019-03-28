@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Class for managing the sending and receiving of signals.
+  Class for managing the sending and receiving of signals.
 Only function, which can be callen directly, is emit.
 
 Instead inherit packages, which should be able to send or receive signals,

@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Eases Loops for templates
+  Eases Loops for templates
 
 
 === METHODS

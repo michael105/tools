@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-A test implementation of a pool of threads,
+  A test implementation of a pool of threads,
 Storing the results of the threads' jobs in a queue
 this is work in progress, please comment
 

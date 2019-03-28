@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Various snippets 
+  Various snippets 
 
 
 === METHODS

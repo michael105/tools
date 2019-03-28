@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Some handling Functions for eix
+  Some handling Functions for eix
 
 
 === METHODS

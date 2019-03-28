@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Handles an httprequest
+  Handles an httprequest
 
 
 === METHODS

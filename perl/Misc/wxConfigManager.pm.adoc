@@ -3,14 +3,13 @@
 == Misc::wxConfigManager 
 
 === NAME
- Misc::wxConfigManager - 
+ Misc::wxConfigManager 
   Version: 0.1 
   Location: /home/micha/git/tools/perl/Misc/wxConfigManager.pm
 
 
 === DESCRIPTION
-  
-
+  0
 
 
 === GLOBAL VARS

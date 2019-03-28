@@ -11,8 +11,7 @@
 
 
 === DESCRIPTION
-  
-Parses the script arguments via Getopt::Mixed.
+  Parses the script arguments via Getopt::Mixed.
 shows: 
 - the script Misc::Documentation via Misc::Documentation::print_scriptdocu() if --help or -h is defined
 - the script version on --version or -v

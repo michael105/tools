@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Global Application Configuration
+  Global Application Configuration
 TODO implement getpath ... (homedir, datadir, configdir, ...)
 
 

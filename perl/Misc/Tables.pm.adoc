@@ -9,8 +9,7 @@
 
 
 === DESCRIPTION
-  
-Dumps out a table
+  Dumps out a table
 
 
 === GLOBAL VARS
