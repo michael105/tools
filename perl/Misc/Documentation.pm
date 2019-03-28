@@ -215,7 +215,7 @@ sub append_element_content{
 				if ( (!exists($args{function} ) || ( $args{function} eq '-')) && ($args{tag} eq 'description') ){ # Script info section, tag description
 
 					my $c = ${$args{content}}[0];
-					if ( $c !~ /,\n/ ){
+					if ( ($c !~ /,\n/) && (length($c)>1) ){
 #						${$args{content}}[0]='';
 
 						$self->set_element_content( tag=>'shortdescription', content=>[ $c ] );
@@ -515,7 +515,7 @@ sub process_tag{
 			 if ( $args{tag} eq 'args' ){
 							 if ( $args{content}->[0] =~ /\(named\)/ ){
 											 $args{content}->[0] =~ s/\s*\(named\)\s*//;
-											 $self->append_element_attribute( function=>$function, tag=>$args{tag}, attribute=>'named', value=>'1' );
+											 $self->set_element_attribute( function=>$function, tag=>$args{tag}, attribute=>'named', value=>'1' );
 							 }
 							 #foreach my $param ( @{$args{content}} ){
 							 #			 next if ( ! ( $param =~ /\w?/ ) ); # next when no chars
@@ -742,6 +742,7 @@ sub print_license{
 ##					pod
 ##					compactcolor
 ## 					desc (short description)	
+##          adoc (asciidoc)
 ##	-noextradoc:	if true, won't display website, author and license					
 sub documentation{
 	my %args = @_;
@@ -1230,6 +1231,64 @@ $GREEN<TMPL_VAR name=nope>LICENSE$RESET
 </TMPL_UNLESS>
 END_TMPL
 
+
+our $TMPL_adoc = << "END_TMPL";
+
+== <TMPL_VAR name=name> 
+
+=== NAME
+ <TMPL_VAR name=name> <TMPL_IF name=shortdescription>- <TMPL_VAR name=shortdescription></TMPL_IF>
+  Version: <TMPL_VAR name=version> 
+  Location: <TMPL_VAR name=location>
+
+
+=== DESCRIPTION
+  <TMPL_VAR name=description>
+
+<TMPL_UNLESS name=usage_default><TMPL_IF name=name_script>USAGE<TMPL_ELSE>SYNOPSIS</TMPL_IF>
+  <TMPL_VAR name=usage>
+</TMPL_UNLESS><TMPL_IF name=name_script>ARGUMENTS
+  <TMPL_VAR name=args>
+</TMPL_IF><TMPL_IF name=globals>
+=== GLOBAL VARS
+  <TMPL_VAR name=globals>
+</TMPL_IF><TMPL_UNLESS name=name_script>
+=== METHODS
+<TMPL_LOOP name=functionloop>
+<TMPL_VAR name=functionname>::
+<TMPL_IF name=description>  <TMPL_VAR name=description>
+
+</TMPL_IF><TMPL_IF name=usage>    Usage:
+
+    <TMPL_VAR name=usage>
+
+</TMPL_IF><TMPL_IF name=args>    - Arguments:
+
+    <TMPL_VAR name=args>
+
+</TMPL_IF><TMPL_IF name=returns>   - Returns:
+
+    <TMPL_VAR name=returns>
+
+</TMPL_IF></TMPL_LOOP>
+</TMPL_UNLESS>
+<TMPL_UNLESS name=noextradoc>
+=== WEBSITE
+  <TMPL_VAR name=webpage>
+
+=== AUTHOR
+  <TMPL_VAR name=author> <TMPL_VAR name=email>
+
+=== LICENSE
+  <TMPL_IF name=licensetext>
+  <TMPL_VAR name=licensetext>
+  <TMPL_ELSE>
+  <TMPL_VAR name=license>
+  </TMPL_IF>
+
+  <TMPL_VAR name=website>
+</TMPL_UNLESS>
+END_TMPL
 
 
 
