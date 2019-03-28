@@ -13,7 +13,7 @@ link:README.adoc[Index]
   
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/wxConfigManager.pm[/home/micha/git/tools/perl/Misc/wxConfigManager.pm]
+link:/perl/Misc/wxConfigManager.pm[/perl/Misc/wxConfigManager.pm]
 
 
 === DESCRIPTION

@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Class for managing the sending and receiving of signals.
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Signals.pm[/home/micha/git/tools/perl/Misc/Signals.pm]
+link:/perl/Misc/Signals.pm[/perl/Misc/Signals.pm]
 
 
 === DESCRIPTION

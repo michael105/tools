@@ -13,7 +13,7 @@ link:README.adoc[Index]
   debug functions
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Debug.pm[/home/micha/git/tools/perl/Misc/Debug.pm]
+link:/perl/Misc/Debug.pm[/perl/Misc/Debug.pm]
 
 
 === DESCRIPTION

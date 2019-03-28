@@ -13,7 +13,7 @@ link:README.adoc[Index]
   A test implementation of a pool of threads,
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/ThreadPool.pm[/home/micha/git/tools/perl/Misc/ThreadPool.pm]
+link:/perl/Misc/ThreadPool.pm[/perl/Misc/ThreadPool.pm]
 
 
 === DESCRIPTION

@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Sqlite helper
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Sqlite.pm[/home/micha/git/tools/perl/Misc/Sqlite.pm]
+link:/perl/Misc/Sqlite.pm[/perl/Misc/Sqlite.pm]
 
 
 === DESCRIPTION

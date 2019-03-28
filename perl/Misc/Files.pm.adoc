@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Some Functions for file handling
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Files.pm[/home/micha/git/tools/perl/Misc/Files.pm]
+link:/perl/Misc/Files.pm[/perl/Misc/Files.pm]
 
 
 === DESCRIPTION

@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Some  helper functions for WWW::Mechanize;
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/MechanizeFunctions.pm[/home/micha/git/tools/perl/Misc/MechanizeFunctions.pm]
+link:/perl/Misc/MechanizeFunctions.pm[/perl/Misc/MechanizeFunctions.pm]
 
 
 === DESCRIPTION

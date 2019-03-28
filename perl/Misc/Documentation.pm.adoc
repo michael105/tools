@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Extracts documentation from a script
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Documentation.pm[/home/micha/git/tools/perl/Misc/Documentation.pm]
+link:/perl/Misc/Documentation.pm[/perl/Misc/Documentation.pm]
 
 
 === DESCRIPTION

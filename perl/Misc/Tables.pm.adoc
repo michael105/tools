@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Dump out a table
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Tables.pm[/home/micha/git/tools/perl/Misc/Tables.pm]
+link:/perl/Misc/Tables.pm[/perl/Misc/Tables.pm]
 
 
 === DESCRIPTION

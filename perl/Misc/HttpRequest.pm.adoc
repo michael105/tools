@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Handles an httprequest
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/HttpRequest.pm[/home/micha/git/tools/perl/Misc/HttpRequest.pm]
+link:/perl/Misc/HttpRequest.pm[/perl/Misc/HttpRequest.pm]
 
 
 === DESCRIPTION

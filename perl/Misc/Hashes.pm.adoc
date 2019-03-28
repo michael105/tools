@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Various functions for hashes
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Hashes.pm[/home/micha/git/tools/perl/Misc/Hashes.pm]
+link:/perl/Misc/Hashes.pm[/perl/Misc/Hashes.pm]
 
 
 === DESCRIPTION

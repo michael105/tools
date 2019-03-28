@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Some helper subs related to html 
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Html.pm[/home/micha/git/tools/perl/Misc/Html.pm]
+link:/perl/Misc/Html.pm[/perl/Misc/Html.pm]
 
 
 === DESCRIPTION

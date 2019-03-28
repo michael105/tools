@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Might be named inplace-template
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Filter.pm[/home/micha/git/tools/perl/Misc/Filter.pm]
+link:/perl/Misc/Filter.pm[/perl/Misc/Filter.pm]
 
 
 === DESCRIPTION

@@ -13,7 +13,7 @@ link:README.adoc[Index]
   Various snippets 
   Version: 0.1 
 	
-link:/home/micha/git/tools/perl/Misc/Snippets.pm[/home/micha/git/tools/perl/Misc/Snippets.pm]
+link:/perl/Misc/Snippets.pm[/perl/Misc/Snippets.pm]
 
 
 === DESCRIPTION

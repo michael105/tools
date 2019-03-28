@@ -5,7 +5,7 @@
 === NAME
  Misc::ThreadPool - A test implementation of a pool of threads,
   Version: 0.1 
-  Location: /home/micha/git/tools/perl/../perl/Misc/ThreadPool.pm
+  Location: /perl/../perl/Misc/ThreadPool.pm
 
 
 === DESCRIPTION
