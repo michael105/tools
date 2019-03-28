@@ -66,7 +66,7 @@ our $year = '2007';
 ##
 our $version = '0.1';
 ## 
-our $webpage = 'http://www.misc2.net';
+our $webpage = 'http://www.github.com/michael105';
 ## 
 our $description = "";
 #our $description = "Not written yet.";
