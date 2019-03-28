@@ -1,2 +1,48 @@
-Found Filter.pm
-This doesn't look like a documented file.
+
+
+== Misc::Filter 
+
+=== NAME
+ Misc::Filter - Might be named inplace-template
+  Version: 0.1 
+  Location: /home/micha//git/tools//perl/Misc/Filter.pm
+
+
+=== DESCRIPTION
+  Might be named inplace-template
+
+
+=== METHODS
+
+filter::
+   
+Filters all  between and including startpattern and endpattern
+
+    - Arguments:
+
+    	startpattern
+				endpattern
+				array to filter
+
+   - Returns:
+
+    The filtered array
+
+
+filterlines::
+   
+Filters all lines between and including startpattern and endpattern
+
+    - Arguments:
+
+    	startpattern
+				endpattern
+				array to filter
+
+   - Returns:
+
+    The filtered array
+
+
+
+

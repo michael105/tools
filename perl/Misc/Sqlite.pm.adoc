@@ -1,2 +1,27 @@
-Found Sqlite.pm
-This doesn't look like a documented file.
+
+
+== Misc::Sqlite 
+
+=== NAME
+ Misc::Sqlite - Sqlite helper
+  Version: 0.1 
+  Location: /home/micha//git/tools//perl/Misc/Sqlite.pm
+
+
+=== DESCRIPTION
+  Sqlite helper
+
+
+=== METHODS
+
+ensuretables::
+   
+
+    - Arguments:
+
+    	-tables
+	-db
+
+
+
+

@@ -1,5 +1,5 @@
 package Misc::Sqlite;
-
+## Sqlite helper
 use DBI;
 use Data::Dumper::Simple;
 
