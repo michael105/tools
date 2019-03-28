@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Class for managing the sending and receiving of signals.
 Only function, which can be callen directly, is emit.
 

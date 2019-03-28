@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Some handling Functions for eix
 
 

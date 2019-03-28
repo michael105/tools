@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Eases Loops for templates
 
 

@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Some  helper functions for WWW::Mechanize;
 
 

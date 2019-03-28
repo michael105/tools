@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Some helper subs related to html 
 Needs use utf8; in the calling module !!
 

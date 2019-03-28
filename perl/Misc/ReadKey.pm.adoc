@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 provides readkey functions
 
 readkey( wait seconds )

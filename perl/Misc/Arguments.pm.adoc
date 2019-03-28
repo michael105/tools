@@ -11,7 +11,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Parses the script arguments via Getopt::Mixed.
 shows: 
 - the script Misc::Documentation via Misc::Documentation::print_scriptdocu() if --help or -h is defined

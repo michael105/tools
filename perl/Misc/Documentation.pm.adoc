@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Extracts documentation from a script
 
 
@@ -29,9 +29,9 @@ our $version = '0.1';
  
 our $webpage = 'http://www.misc2.net';
  
-our $description = "Not written yet.";
+our $description = "";
  
-our $usage = "Not written yet.";
+our $usage = "";
  
 our $name = "Defaults to the script's/module's filename, if not supplied";
  

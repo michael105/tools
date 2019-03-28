@@ -9,7 +9,7 @@
 
 
 === DESCRIPTION
-  Not written yet.
+  
 Global Application Configuration
 TODO implement getpath ... (homedir, datadir, configdir, ...)
 
