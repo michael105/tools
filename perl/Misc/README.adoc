@@ -1,0 +1,71 @@
+:hardbreaks:
+
+== Index
+
+
+  A few modules, I've written in perl.
+
+
+
+
+
+link:AppConfig.pm[AppConfig.pm]::
+Global Application Configuration
+
+link:Arguments.pm[Arguments.pm]::
+Parses the script arguments via Getopt::Mixed.
+
+link:Debug.pm[Debug.pm]::
+debug functions
+
+link:Documentation.pm[Documentation.pm]::
+Extracts documentation from a script
+
+link:Eix.pm[Eix.pm]::
+Some handling Functions for eix
+
+link:Files.pm[Files.pm]::
+Some Functions for file handling
+
+link:Filter.pm[Filter.pm]::
+Might be named inplace-template
+
+link:Function.pm[Function.pm]::Found Function.pm
+This doesn't look like a documented file.
+
+link:Hashes.pm[Hashes.pm]::
+Various functions for hashes
+
+link:Html.pm[Html.pm]::
+Some helper subs related to html 
+
+link:HttpRequest.pm[HttpRequest.pm]::
+Handles an httprequest
+
+link:MechanizeFunctions.pm[MechanizeFunctions.pm]::
+Some  helper functions for WWW::Mechanize;
+
+link:ReadKey.pm[ReadKey.pm]::
+provides readkey functions
+
+link:Signals.pm[Signals.pm]::
+Class for managing the sending and receiving of signals.
+
+link:Snippets.pm[Snippets.pm]::
+Various snippets 
+
+link:Sqlite.pm[Sqlite.pm]::
+Sqlite helper
+
+link:Tables.pm[Tables.pm]::
+Dump out a table
+
+link:TemplateLoop.pm[TemplateLoop.pm]::
+Eases Loops for templates
+
+link:ThreadPool.pm[ThreadPool.pm]::
+A test implementation of a pool of threads,
+
+link:wxConfigManager.pm[wxConfigManager.pm]::
+0
+
