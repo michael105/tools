@@ -7,65 +7,63 @@
 
 
 
-
-
-link:AppConfig.pm[AppConfig.pm]::
+link:AppConfig.pm.adoc[AppConfig.pm]::
 Global Application Configuration
 
-link:Arguments.pm[Arguments.pm]::
+link:Arguments.pm.adoc[Arguments.pm]::
 Parses the script arguments via Getopt::Mixed.
 
-link:Debug.pm[Debug.pm]::
+link:Debug.pm.adoc[Debug.pm]::
 debug functions
 
-link:Documentation.pm[Documentation.pm]::
+link:Documentation.pm.adoc[Documentation.pm]::
 Extracts documentation from a script
 
-link:Eix.pm[Eix.pm]::
+link:Eix.pm.adoc[Eix.pm]::
 Some handling Functions for eix
 
-link:Files.pm[Files.pm]::
+link:Files.pm.adoc[Files.pm]::
 Some Functions for file handling
 
-link:Filter.pm[Filter.pm]::
+link:Filter.pm.adoc[Filter.pm]::
 Might be named inplace-template
 
-link:Function.pm[Function.pm]::Found Function.pm
+link:Function.pm.adoc[Function.pm]::Found Function.pm
 This doesn't look like a documented file.
 
-link:Hashes.pm[Hashes.pm]::
+link:Hashes.pm.adoc[Hashes.pm]::
 Various functions for hashes
 
-link:Html.pm[Html.pm]::
+link:Html.pm.adoc[Html.pm]::
 Some helper subs related to html 
 
-link:HttpRequest.pm[HttpRequest.pm]::
+link:HttpRequest.pm.adoc[HttpRequest.pm]::
 Handles an httprequest
 
-link:MechanizeFunctions.pm[MechanizeFunctions.pm]::
+link:MechanizeFunctions.pm.adoc[MechanizeFunctions.pm]::
 Some  helper functions for WWW::Mechanize;
 
-link:ReadKey.pm[ReadKey.pm]::
+link:ReadKey.pm.adoc[ReadKey.pm]::
 provides readkey functions
 
-link:Signals.pm[Signals.pm]::
+link:Signals.pm.adoc[Signals.pm]::
 Class for managing the sending and receiving of signals.
 
-link:Snippets.pm[Snippets.pm]::
+link:Snippets.pm.adoc[Snippets.pm]::
 Various snippets 
 
-link:Sqlite.pm[Sqlite.pm]::
+link:Sqlite.pm.adoc[Sqlite.pm]::
 Sqlite helper
 
-link:Tables.pm[Tables.pm]::
+link:Tables.pm.adoc[Tables.pm]::
 Dump out a table
 
-link:TemplateLoop.pm[TemplateLoop.pm]::
+link:TemplateLoop.pm.adoc[TemplateLoop.pm]::
 Eases Loops for templates
 
-link:ThreadPool.pm[ThreadPool.pm]::
+link:ThreadPool.pm.adoc[ThreadPool.pm]::
 A test implementation of a pool of threads,
 
-link:wxConfigManager.pm[wxConfigManager.pm]::
+link:wxConfigManager.pm.adoc[wxConfigManager.pm]::
 0
 
